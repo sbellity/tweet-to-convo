@@ -1,0 +1,19 @@
+<div class="hull-conversations">
+  <div class="hull-conversations__header">
+    <h1>My Conversations</h1>
+  </div>
+  
+  {{#if conversations}}
+    <ul class="media-list">
+      {{#conversations}}
+        <li class="well conversation">
+          <h5>{{fromNow created_at}}</h5>
+          {{name}}
+          <button class='pull-right'  data-hull-action='selectConversation' data-hull-id='{{id}}'>Let's talk about this</button>
+        </li>
+      {{/conversations}}
+    </ul>
+  {{else}}
+    No convo for the moment...
+  {{/if}}
+</div>

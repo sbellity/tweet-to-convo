@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hullo World!</title>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <!-- build:css application.css -->
+    <link rel="stylesheet" href="./styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="//js.hull.dev/dist/develop/hull.js"></script>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="span6">
+          <div data-hull-widget="snap"></div>
+        </div>
+        <div class="span3">
+          <h2>Tweets For Snapengage</h2>
+          <div data-hull-widget='twitter-feed' data-hull-search="snapengage"></div>
+        </div>
+        <div class="span3">
+          <h2>Tweets For Hull</h2>
+          <div data-hull-widget='twitter-feed' data-hull-search="@hull"></div>
+        </div>
+      </div>
+    </div>
+
+    <script></script>
+
+    <!-- build:js application.js -->
+    <script src="scripts/hull-init.js"></script>
+    <script src="scripts/widgets.js"></script>
+    <script src="scripts/templates.js"></script>
+    <!-- endbuild -->
+
+
+    <!-- begin SnapEngage code -->
+    <script type="text/javascript">
+    (function() {
+      var se = document.createElement('script'); se.type = 'text/javascript'; se.async = true;
+      se.src = '//commondatastorage.googleapis.com/code.snapengage.com/js/57237552-b102-4f76-903d-6d5a475be5ba.js';
+      var done = false;
+      se.onload = se.onreadystatechange = function() {
+        if (!done&&(!this.readyState||this.readyState==='loaded'||this.readyState==='complete')) {
+          done = true;
+          // Place your SnapEngage JS API code below
+          // SnapEngage.openProactiveChat(true, true); // Example: open the proactive chat on load
+        }
+      };
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(se, s);
+    })();
+    </script>
+    <!-- end SnapEngage code -->
+  </body>
+</html>

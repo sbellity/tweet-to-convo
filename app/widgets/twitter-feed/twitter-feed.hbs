@@ -1,0 +1,10 @@
+<ul>
+  {{#each tweets.statuses}}
+  <li>
+    {{text}}
+    <button class="btn" data-hull-action='createConversation' data-hull-tweet-id='{{id}}' data-hull-tweet="{{text}}">
+      Make a Convo
+    </button>
+  </li>
+  {{/each}}
+</ul>
