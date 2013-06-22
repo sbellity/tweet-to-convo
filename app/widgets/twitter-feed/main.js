@@ -8,24 +8,38 @@ Hull.widget('twitter-feed', {
     }
   },
 
+  initialize: function() {
+    this.tweets = {};
+  },
+
   actions: {
     createConversation: function(event, action) {
       var self = this;
+      var tweet = this.tweets[action.data.tweetId];
       var tweetId = this.sandbox.util.entity.encode('tweet-' + action.data.tweetId);
+      var convoTweet = {
+        status: "Hey @" + tweet.user.screen_name + " we should talk... come here http://talk.to/me to chat with us !",
+        in_reply_to_status_id: tweet.id
+      };
       this.api(tweetId + '/conversations', 'post', {
-        name: action.data.tweet
+        name: action.data.tweet,
+        participant_ids: ["twiter:" + tweet.user.id]
       }).then(function(convo) {
-        console.warn("Added convo !", convo);
+        console.warn("Publishing Tweet: ", convoTweet);
+        // this.api({ provier: 'twitter', path: 'statuses/update' }, 'post', {
+        //   status: ""
+        // });
         self.sandbox.emit('hull.conversations.add', convo);
       });
     },
   },
 
-  beforeRender: function(data) {
-  },
-
-  afterRender: function() {
-
+  afterRender: function(data) {
+    var tweets = {};
+    _.map(data.tweets.statuses, function(tweet) {
+      tweets[tweet.id] = tweet;
+    });
+    this.tweets = tweets;
   }
 
 });

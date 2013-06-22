@@ -1,10 +1,19 @@
-<ul>
+<ul class="unstyled">
   {{#each tweets.statuses}}
-  <li>
-    {{text}}
-    <button class="btn" data-hull-action='createConversation' data-hull-tweet-id='{{id}}' data-hull-tweet="{{text}}">
-      Make a Convo
-    </button>
+  <li class="media">
+    <div class="pull-left">
+      <img class="media-object img-rounded" width='50px' height='50px' src="{{user.profile_image_url_https}}"/>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">
+        {{user.name}} @{{user.screen_name}}
+      </h4>
+      <p>{{text}}</p>
+      <p class="muted">
+        <button class="btn btn-mini" data-hull-action='createConversation' data-hull-tweet-id='{{id}}' data-hull-tweet="{{text}}">Talk to this guy</button>
+      <span class='pull-right'>{{fromNow created_at}}</span>
+      </p>
+    </div>
   </li>
   {{/each}}
 </ul>

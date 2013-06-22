@@ -1,0 +1,8 @@
+{{#if loggedIn.twitter}}
+{{#searches}}
+<div class="span3" data-hull-widget="twitter-feed" data-hull-search="{{.}}">Loading...</div>
+{{/searches}}
+{{else}}
+<div data-hull-widget='identity@hull'></div>
+{{/if}}
+

@@ -1,5 +1,5 @@
 Hull.init({
-  appId : "51c4892ed45037a3ce000009",
-  orgUrl: "http://e2ee4d3b.hullapp.dev",
+  appId : "51c4cab709e50d947d000003",
+  orgUrl: "http://super.hullapp.dev",
   debug : true // optional
 });
