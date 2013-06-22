@@ -3,9 +3,17 @@
     <ul class="media-list">
       {{#conversations}}
         <li class="well conversation">
+          <div class="pull-right">
+            {{#participants}}
+            <span class='label {{#if is_admin}}label-important{{/if}}'>
+              <img src='{{picture}}' width='24px' height='24px' />
+              {{name}}
+            </span> &nbsp;
+            {{/participants}}
+          </div>
           <h5>{{fromNow created_at}}</h5>
           {{name}}
-          <button class='btn pull-right'  data-hull-action='selectConversation' data-hull-id='{{id}}'>Let's talk about this</button>
+          <button class='btn pull-right'  data-hull-action='pickConversation' data-hull-id='{{id}}'>Let's talk about this</button>
         </li>
       {{/conversations}}
     </ul>

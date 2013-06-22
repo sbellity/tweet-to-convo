@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Hullo World!</title>
-    <link href="//hullstrap.s3.amazonaws.com/stylesheets/hullstrap.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
     <!-- build:css application.css -->
     <link rel="stylesheet" href="./styles/main.css">
     <!-- endbuild -->
@@ -14,8 +14,14 @@
     <script src="//js.hull.dev/dist/develop/hull.js"></script>
 
 
-    <div class="container">      
-      <div data-hull-widget="lets-talk"></div>
+    <div class="container">
+      <div class="row">
+        <div class="span6">
+          <div data-hull-widget="conversations"></div>
+        </div>
+        <div data-hull-widget='tweets' data-hull-searches="@hull">
+        </div>
+      </div>
     </div>
 
     <script></script>

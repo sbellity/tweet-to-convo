@@ -1,0 +1,13 @@
+<div class="container">
+  {{#if loggedIn.twitter}}
+  <div class="row">
+    <div class='span4' data-hull-widget='conversations'></div>
+    <div class='span8' data-hull-widget='conversation'></div>
+  </div>
+  {{else}}
+  <div class="hero-unit">
+    <h1>Let's talk !</h1>
+    <div data-hull-widget='identity@hull'></div>
+  </div>
+  {{/if}}
+</div>

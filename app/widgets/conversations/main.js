@@ -12,15 +12,14 @@ Hull.widget('conversations', {
     this.conversations = {};
   },
 
-  actions: { selectConversation: 'selectConversation' },
+  actions: { pickConversation: 'pickConversation' },
 
-  selectConversation: function(event, action) {
+  pickConversation: function(event, action) {
     if (action && action.data.id) {
       this.currentConversationId = action.data.id;
     }
-    this.sandbox.emit('hull.conversations.select', this.conversations[this.currentConversationId]);
+    this.sandbox.emit('hull.conversations.pick', this.conversations[this.currentConversationId]);
   },
-
 
   afterRender: function(data) {
     if (data.conversations && data.conversations.length > 0) {
@@ -30,7 +29,7 @@ Hull.widget('conversations', {
       });
       this.conversations = conversations;
       this.currentConversationId = data.conversations[0].id;
-      // this.actions.selectConversation.call(this, data.conversations[0]);
+      this.pickConversation(data.conversations[0]);
     }
   },
 

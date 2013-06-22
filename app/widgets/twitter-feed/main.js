@@ -17,13 +17,14 @@ Hull.widget('twitter-feed', {
       var self = this;
       var tweet = this.tweets[action.data.tweetId];
       var tweetId = this.sandbox.util.entity.encode('tweet-' + action.data.tweetId);
+      console.warn("Tweet ?", action.data.tweetId, tweet, this.tweets);
       var convoTweet = {
         status: "Hey @" + tweet.user.screen_name + " we should talk... come here http://talk.to/me to chat with us !",
         in_reply_to_status_id: tweet.id
       };
       this.api(tweetId + '/conversations', 'post', {
         name: action.data.tweet,
-        participant_ids: ["twiter:" + tweet.user.id]
+        participant_ids: "twitter:" + tweet.user.id
       }).then(function(convo) {
         console.warn("Publishing Tweet: ", convoTweet);
         // this.api({ provier: 'twitter', path: 'statuses/update' }, 'post', {
@@ -39,6 +40,7 @@ Hull.widget('twitter-feed', {
     _.map(data.tweets.statuses, function(tweet) {
       tweets[tweet.id] = tweet;
     });
+    console.warn("We have tweets: ", tweets);
     this.tweets = tweets;
   }
 
